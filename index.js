@@ -43,10 +43,10 @@ io.on("connection", (socket) => {
         );
         const room = activeRooms[roomId].users;
         if (room) {
-            if (room.length <= 2) {
+            if (room.length <= 10) {
                 socket.join(roomId);
                 socket.emit('join room', roomId);
-                if (room.length === 2) {
+                if (room.length >=10) {
                     io.to(roomId).emit('can play now', roomId, activeRooms);
                 }
             }
