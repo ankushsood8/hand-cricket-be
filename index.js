@@ -46,7 +46,7 @@ io.on("connection", (socket) => {
             if (room.length <= 10) {
                 socket.join(roomId);
                 socket.emit('join room', roomId);
-                if (room.length >=10) {
+                if (room.length >=2) {
                     io.to(roomId).emit('can play now', roomId, activeRooms);
                 }
             }
